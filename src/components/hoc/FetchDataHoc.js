@@ -14,10 +14,12 @@ const FetchDataHoc = (ComponentReceived, url) => {
                     console.log(res.data)
                 })            
         }, [])
+
         if (!data) return (
             <div style={{textAlign: 'center' }} className='loading'>
                 <img src='https://www.shiatsudeloire.com/imgs/loader.gif' />
             </div>)
+            
         return <ComponentReceived {...props} data={data} />
 
     }

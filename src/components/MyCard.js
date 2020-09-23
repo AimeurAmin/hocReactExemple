@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
 
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { Link } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,32 +41,34 @@ const MyCard = ({data}) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} style={{cursor:'pointer'}}>
-      <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            {data.author[0]}
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title={data.title}
-        subheader={data.publishedAt}
-      />
-      <CardMedia
-        className={classes.media}
-        image={data.urlToImage}
-        title="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {data.description}
-        </Typography>
-      </CardContent>
-    </Card>
+    <Link href={data.url} style={{ textDecoration: 'none' }}>
+        <Card className={classes.root} style={{cursor:'pointer'}}>
+        <CardHeader
+            avatar={
+            <Avatar aria-label="recipe" className={classes.avatar}>
+                {data.author[0]}
+            </Avatar>
+            }
+            action={
+            <IconButton aria-label="settings">
+                <MoreVertIcon />
+            </IconButton>
+            }
+            title={data.title}
+            subheader={data.publishedAt}
+        />
+        <CardMedia
+            className={classes.media}
+            image={data.urlToImage}
+            title="Paella dish"
+        />
+        <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+            {data.description}
+            </Typography>
+        </CardContent>
+        </Card>
+    </Link>
   );
 }
 
