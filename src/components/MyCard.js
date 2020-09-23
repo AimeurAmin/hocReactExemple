@@ -40,13 +40,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MyCard = () => {
+const MyCard = ({data}) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card className={classes.root}>
@@ -61,18 +56,17 @@ const MyCard = () => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={data.title}
+        subheader={data.publishedAt}
       />
       <CardMedia
         className={classes.media}
-        image="https://ichef.bbci.co.uk/images/ic/400xn/p08s8qrk.jpg"
+        image={data.urlToImage}
         title="Paella dish"
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {data.description}
         </Typography>
       </CardContent>
     </Card>
