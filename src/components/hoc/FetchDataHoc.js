@@ -2,8 +2,7 @@ import Axios from 'axios'
 import React from 'react'
 import '../../App.css'
 
-const FetchDataHoc = (ComponentReceived, url) => {
-    
+const FetchDataHoc = (url) => ComponentReceived =>   {  
     const NewComponent = props => {
         const [data, setData] = React.useState(null)
         React.useEffect( _ => {
@@ -19,12 +18,13 @@ const FetchDataHoc = (ComponentReceived, url) => {
             <div style={{textAlign: 'center' }} className='loading'>
                 <img src='https://www.shiatsudeloire.com/imgs/loader.gif' />
             </div>)
-            
+
         return <ComponentReceived {...props} data={data} />
 
     }
 
     return NewComponent
 }
+
 
 export default FetchDataHoc
