@@ -8,6 +8,7 @@ import FetchDataHoc from './components/hoc/FetchDataHoc';
 function App() {
   const url = 'https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=056295d06fee48e8bb7a2e15574ad904'
   const MyCardsListWithData = FetchDataHoc(url)(MyCardsList)
+  // testing kraken
   return (
     <div className="App">
       <h1 style={{textAlign: 'center'}}>BBC NEWS</h1>
